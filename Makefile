@@ -1,11 +1,14 @@
 warnings=
 
-all:
+all_without_test:
 	make clean_all
 	make reader
 	make writer
 	make clear
 	make clean
+
+all:
+	make all_without_test
 	make test
 
 writer: writer.o utils.o
@@ -41,10 +44,22 @@ clean:
 clean_all:
 	make clean && rm -rf reader writer
 
-test:
+test_write:
 	./writer foo bar
-	./reader fooa
+
+test_read:
 	./reader foo
-	./reader foo
+
+test_read_undefined:
+	./reader undefined
+
+test_clear:
 	./clear foo
-	./reader foo
+
+test:
+	make test_write
+	make test_read_undefined
+	make test_read
+	make test_read
+	make test_clear
+	make test_read
