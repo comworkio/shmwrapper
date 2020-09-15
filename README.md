@@ -18,14 +18,14 @@ $ make all
 $ ./writter foo bar
 ```
 
-## Get a value in the shared memory
+### Get a value in the shared memory
 
 ```shell
 $ ./reader foo
 bar
 ```
 
-## Remove a value in the shared memory
+### Remove a value in the shared memory
 
 ```shell
 $ ./clear foo
