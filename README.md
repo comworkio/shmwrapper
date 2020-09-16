@@ -19,7 +19,7 @@ $ make all
 ### Put a value in the shared memory
 
 ```shell
-$ ./writter foo bar
+$ ./writer foo bar
 ```
 
 ### Get a value in the shared memory
