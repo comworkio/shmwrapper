@@ -30,3 +30,9 @@ bar
 ```shell
 $ ./clear foo
 ```
+
+## Testing with docker-compose
+
+```shell
+$ docker-compose up
+```

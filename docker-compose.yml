@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+  write:
+    image: shmwrapper/build
+    container_name: write
+    ipc: host
+    build:
+      context: docker/build
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/shmwrapper:z
+    command: /bin/sh -c "cd shmwrapper && make all_without_test && make test_write"
+  read:
+    image: shmwrapper/build
+    container_name: read
+    ipc: host
+    build:
+      context: docker/build
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/shmwrapper:z
+    command: /bin/sh -c "sleep 2 && cd /shmwrapper && make all_without_test && make test_read && make test_clear"
+    depends_on:
+      - write
