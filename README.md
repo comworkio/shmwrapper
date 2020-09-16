@@ -4,6 +4,10 @@
 
 Use shared memory as a cache with keys and values.
 
+This project aims to check if containers can be able to share IPC's host and if that is natively the case for containers accross the same kubernetes pod.
+
+Spoiler: yes !
+
 ## Getting started
 
 ### Build the commands
