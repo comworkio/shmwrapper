@@ -22,7 +22,7 @@ Expected end of output:
 ./writer foo bar
 ```
 
-# expected result : 
+### Check the reader container 
 
 ```shell
 $ kubectl -n shmwrapper logs shmwrapper-859c66f785-v59pz -c shmwrapper-reader
