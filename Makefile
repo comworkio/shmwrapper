@@ -56,6 +56,17 @@ test_read_undefined:
 test_clear:
 	./clear foo
 
+test_big_keys:
+	./writer keyveryveryveryveryverylong value
+	./writer keyveryveryveryveryverylong value2
+	./writer keyveryveryveryveryveryverylong value3
+	./reader keyveryveryveryveryverylong
+	./reader keyveryveryveryveryveryverylong
+	./clear keyveryveryveryveryverylong
+	./clear keyveryveryveryveryveryverylong
+	./reader keyveryveryveryveryverylong
+	./reader keyveryveryveryveryveryverylong
+
 test:
 	make test_write
 	make test_read_undefined
@@ -63,3 +74,4 @@ test:
 	make test_read
 	make test_clear
 	make test_read
+	make test_big_keys
