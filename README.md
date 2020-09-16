@@ -31,8 +31,14 @@ bar
 $ ./clear foo
 ```
 
-## Testing with docker-compose
+## Testing with containers
+
+### Testing with docker-compose
 
 ```shell
 $ docker-compose up
 ```
+
+### Testing with kubernetes
+
+See [this md file](./kubernetes/README.md)
