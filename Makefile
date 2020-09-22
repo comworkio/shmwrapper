@@ -2,38 +2,20 @@ warnings=
 
 all_without_test:
 	make clean_all
-	make reader
-	make writer
-	make clear
+	make shmwrapper
 	make clean
 
 all:
 	make all_without_test
 	make test
 
-writer: writer.o utils.o
-	gcc writer.o utils.o -o writer
-	chmod +x writer
+shmwrapper: shmwrapper.o utils.o
+	gcc shmwrapper.o utils.o -o shmwrapper
+	chmod +x shmwrapper
 	make clean
 
-reader: reader.o utils.o
-	gcc reader.o utils.o -o reader
-	chmod +x reader
-	make clean
-
-clear: clear.o utils.o
-	gcc clear.o utils.o -o clear
-	chmod +x clear
-	make clean
-
-writer.o: writer.c
-	gcc -c writer.c $(warnings) -o writer.o
-
-reader.o: reader.c
-	gcc -c reader.c $(warnings) -o reader.o
-
-clear.o: clear.c
-	gcc -c clear.c $(warnings) -o clear.o
+shmwrapper.o: shmwrapper.c
+	gcc -c shmwrapper.c $(warnings) -o shmwrapper.o
 
 utils.o: utils.c
 	gcc -c utils.c $(warnings) -o utils.o
@@ -42,30 +24,30 @@ clean:
 	rm -rf *~ *.o
 
 clean_all:
-	make clean && rm -rf reader writer
+	make clean && rm -rf shmwrapper
 
 test_write:
-	./writer foo bar
+	./shmwrapper -w foo bar
 
 test_read:
-	./reader foo
+	./shmwrapper -r foo
 
 test_read_undefined:
-	./reader undefined
+	./shmwrapper -r undefined
 
 test_clear:
-	./clear foo
+	./shmwrapper -c foo
 
 test_big_keys:
-	./writer keyveryveryveryveryverylong value
-	./writer keyveryveryveryveryverylong value2
-	./writer keyveryveryveryveryveryverylong value3
-	./reader keyveryveryveryveryverylong
-	./reader keyveryveryveryveryveryverylong
-	./clear keyveryveryveryveryverylong
-	./clear keyveryveryveryveryveryverylong
-	./reader keyveryveryveryveryverylong
-	./reader keyveryveryveryveryveryverylong
+	./shmwrapper -w keyveryveryveryveryverylong value
+	./shmwrapper -w keyveryveryveryveryverylong value2
+	./shmwrapper -w keyveryveryveryveryveryverylong value3
+	./shmwrapper -r keyveryveryveryveryverylong
+	./shmwrapper -r keyveryveryveryveryveryverylong
+	./shmwrapper -c keyveryveryveryveryverylong
+	./shmwrapper -c keyveryveryveryveryveryverylong
+	./shmwrapper -r keyveryveryveryveryverylong
+	./shmwrapper -r keyveryveryveryveryveryverylong
 
 test:
 	make test_write

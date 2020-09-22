@@ -66,6 +66,4 @@ local.properties
 target/
 hs_err_pid*.log
 
-reader
-writer
-clear
+shmwrapper

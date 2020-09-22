@@ -10,29 +10,35 @@ Spoiler: yes !
 
 ## Getting started
 
-### Build the commands
+### Build the command
 
 ```shell
 $ make all
 ```
 
+### Getting help
+
+```shell
+$ ./shmwrapper -h foo bar
+```
+
 ### Put a value in the shared memory
 
 ```shell
-$ ./writer foo bar
+$ ./shmwrapper -w foo bar
 ```
 
 ### Get a value in the shared memory
 
 ```shell
-$ ./reader foo
+$ ./shmwrapper -r foo
 bar
 ```
 
 ### Remove a value in the shared memory
 
 ```shell
-$ ./clear foo
+$ ./shmwrapper -c foo
 ```
 
 ## Testing with containers
