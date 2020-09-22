@@ -19,7 +19,7 @@ $ make all
 ### Getting help
 
 ```shell
-$ ./shmwrapper -h foo bar
+$ ./shmwrapper -h
 ```
 
 ### Put a value in the shared memory
