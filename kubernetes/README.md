@@ -19,7 +19,7 @@ $ kubectl -n shmwrapper logs shmwrapper-859c66f785-v59pz -c shmwrapper-writer
 Expected end of output:
 
 ```
-./writer foo bar
+./shmwrapper -w foo bar
 ```
 
 ### Check the reader container 
@@ -31,9 +31,9 @@ $ kubectl -n shmwrapper logs shmwrapper-859c66f785-v59pz -c shmwrapper-reader
 Expected end of output:
 
 ```
-./reader foo
+./shmwrapper -r foo
 bar
-./clear foo
+./shmwrapper -c foo
 ```
 
 ## Cleaning
