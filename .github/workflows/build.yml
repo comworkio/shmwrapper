@@ -1,0 +1,16 @@
+name: build_shmwrapper
+
+on: [push]
+
+strategy:
+  matrix:
+    compiler: [gcc, clang]
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: build and tests
+      env:
+        CC: ${{ matrix.compiler }}
+      run: bash -c "make all"
