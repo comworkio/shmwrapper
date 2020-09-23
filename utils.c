@@ -8,8 +8,8 @@
 
 key_t token_key (char* original) {
     int i = 0, d = 1, total = 0;
-    for (i = 0 ; i < strlen(original) ; i++) {
-        total += d*((int) original[i]);
+    for (i = 0 ; i < strlen (original) ; i++) {
+        total += d * ((int) original[i]);
         d*=10;
     }
 
@@ -18,13 +18,13 @@ key_t token_key (char* original) {
 
 void check_arguments (int argc, int min_expected) {
     if (argc < min_expected) {
-        f_display_help(stderr);
-        exit(1);
+        f_display_help (stderr);
+        exit (1);
     }
 }
 
 void display_help () {
-    f_display_help(stdout);
+    f_display_help (stdout);
 }
 
 void f_display_help (FILE* std) {
@@ -48,9 +48,9 @@ int create_segment (key_t key) {
 
     if ((shmid = shmget(key, SHM_SIZE, 0644 | IPC_CREAT)) == -1) {
         perror (COLOR_BOLD_RED);
-        perror("[create_segment] Error with shmget\n");
+        perror ("[create_segment] Error with shmget\n");
         perror (COLOR_RESET);
-        exit(1);
+        exit (1);
     }
 
     return shmid;
@@ -61,7 +61,7 @@ char* attach_segment_to_pointer (int shmid) {
 
     if ((shared_data = shmat(shmid, NULL, 0)) == (char *)-1) {
         perror (COLOR_BOLD_RED);
-        perror("[attach_segment_to_pointer] Error with shmat\n");
+        perror ("[attach_segment_to_pointer] Error with shmat\n");
         perror (COLOR_RESET);
         exit(1);
     }
@@ -70,11 +70,11 @@ char* attach_segment_to_pointer (int shmid) {
 }
 
 void clear_entry (int shmid) {
-    shmctl(shmid, IPC_RMID, NULL);
+    shmctl (shmid, IPC_RMID, NULL);
 }
 
 void detach_shm (char* shared_data) {
-    shmdt(shared_data);
+    shmdt (shared_data);
 }
 
 void shm_read (char* s_key) {
