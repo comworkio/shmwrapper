@@ -1,5 +1,6 @@
 stages:
   - publish
+  - build_and_test
 
 github-mirror:
   stage: publish
@@ -10,3 +11,11 @@ github-mirror:
   tags:
     - shmwrapper
 
+build-and-test:
+  stage: build_and_test
+  script:
+    - make all
+  only:
+    - /^(master.*)$/
+  tags:
+    - shmwrapper

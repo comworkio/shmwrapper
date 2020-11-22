@@ -70,3 +70,5 @@ shmwrapper
 
 *.code-workspace
 *.vscode
+
+*.o
