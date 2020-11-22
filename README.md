@@ -8,6 +8,11 @@ This project aims to check if containers can be able to share IPC's host and if 
 
 Spoiler: yes !
 
+## Git repositories
+
+* main repo: https://gitlab.comwork.io/oss/shmwrapper
+* github mirror backup: https://github.com/idrissneumann/shmwrapper
+
 ## Getting started
 
 ### Build the command

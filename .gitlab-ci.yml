@@ -1,0 +1,12 @@
+stages:
+  - publish
+
+github-mirror:
+  stage: publish
+  script:
+    - setsid ./ci/github-mirror.sh
+  only:
+    - /^(master.*)$/
+  tags:
+    - shmwrapper
+
