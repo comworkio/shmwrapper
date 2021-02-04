@@ -12,6 +12,7 @@ Spoiler: yes !
 
 * main repo: https://gitlab.comwork.io/oss/shmwrapper
 * github mirror backup: https://github.com/idrissneumann/shmwrapper
+* gitlab mirror backup: https://gitlab.com/ineumann/shmwrapper
 
 ## Getting started
 

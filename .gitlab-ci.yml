@@ -2,10 +2,10 @@ stages:
   - publish
   - build_and_test
 
-github-mirror:
+mirror:
   stage: publish
   script:
-    - setsid ./ci/github-mirror.sh
+    - setsid ./ci/mirror.sh
   only:
     - /^(master.*)$/
   tags:
