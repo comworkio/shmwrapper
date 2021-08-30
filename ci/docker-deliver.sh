@@ -13,6 +13,7 @@ tag_and_push() {
   docker tag "comworkio/${2}:latest" "comworkio/${2}:${1}"
   docker push "comworkio/${2}:${1}"
 
+  export DOCKER_CLI_EXPERIMENTAL=enabled
   if [[ $ARCH = "arm" ]]; then
     docker manifest create comworkio/${2}:${1}:manifest-latest --amend comworkio/${2}:${1}:manifest-arm32v7 --amend comworkio/${2}:${1}:manifest-arm64v8
   else
@@ -20,6 +21,7 @@ tag_and_push() {
   fi
 
   docker manifest push comworkio/${2}:${1}:manifest-latest
+  unset DOCKER_CLI_EXPERIMENTAL
 }
 
 cd "${REPO_PATH}" && git pull origin master || : 
