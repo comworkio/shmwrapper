@@ -8,6 +8,7 @@ services:
     build:
       context: docker/build
       dockerfile: Dockerfile
+      target: default_test
     volumes:
       - ./:/shmwrapper:z
     command: /bin/sh -c "cd shmwrapper && make all_without_test && make test_write"
@@ -18,6 +19,7 @@ services:
     build:
       context: docker/build
       dockerfile: Dockerfile
+      target: default_test
     volumes:
       - ./:/shmwrapper:z
     command: /bin/sh -c "sleep 2 && cd /shmwrapper && make all_without_test && make test_read && make test_clear"
