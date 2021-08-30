@@ -73,3 +73,6 @@ You can also test that both architecture are working on a Mac M1 Silicon!
 
 ```shell
 $ docker-compose -f docker-compose-test-m1.yml up
+```
+
+![m1-test](./images/m1-test.png)

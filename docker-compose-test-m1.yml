@@ -3,25 +3,25 @@ version: "3.3"
 services:
   write_x86:
     image: comworkio/shmwrapper:latest-x86
-    container_name: shmwrapper_read_x86
-    ipc: host
-    command: /bin/sh -c "/shmwrapper -w foo bar"
-  read_x86:
-    image: comworkio/shmwrapper:latest-x86
     container_name: shmwrapper_write_x86
     ipc: host
-    command: /bin/sh -c "sleep 2 && /shmwrapper -r foo"
+    command: ["/shmwrapper", "-w", "foo", "bar"]
+  read_x86:
+    image: comworkio/shmwrapper:latest-x86
+    container_name: shmwrapper_read_x86
+    ipc: host
+    command: ["/shmwrapper", "-r", "foo"]
     depends_on:
       - write_x86
   write_arm:
     image: comworkio/shmwrapper:latest-arm
-    container_name: shmwrapper_read_arm
-    ipc: host
-    command: /bin/sh -c "/shmwrapper -w foo bar"
-  read_arm:
-    image: comworkio/shmwrapper:latest-arm
     container_name: shmwrapper_write_arm
     ipc: host
-    command: /bin/sh -c "sleep 2 && /shmwrapper -r foo"
+    command: ["/shmwrapper", "-w", "foo", "bar"]
+  read_arm:
+    image: comworkio/shmwrapper:latest-arm
+    container_name: shmwrapper_read_arm
+    ipc: host
+    command: ["/shmwrapper", "-r", "foo"]
     depends_on:
       - write_arm
