@@ -1,5 +1,9 @@
 # Shared memory simple wrapper
 
+## Table of content
+
+[[_TOC_]]
+
 ## Description
 
 Use shared memory as a cache with keys and values.
@@ -58,3 +62,9 @@ $ docker-compose -f docker-compose-test.yml up
 ### Testing with kubernetes
 
 See [this md file](./kubernetes/README.md)
+
+### Test with ready to use hub docker images
+
+See this [image on docker hub](https://hub.docker.com/repository/docker/comworkio/shmwrapper)
+
+The image is providing tags for x86 and arm architecture.

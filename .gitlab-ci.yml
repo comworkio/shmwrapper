@@ -17,7 +17,16 @@ build-and-test:
   script:
     - make all
   only:
-    - /^(master.*)$/
+    refs:
+      - /^(master.*)$/
+    changes:
+      - .gitlab-ci.yml
+      - shmwrapper.c
+      - utils.c
+      - utils.h
+      - Makefile
+      - docker-compose-test.yml
+      - docker/build/Dockerfile
   tags:
     - shmwrapper
 
@@ -26,7 +35,17 @@ arm32:
   script:
     - setsid ./ci/docker-deliver.sh "arm" "shmwrapper" "1.0"
   only:
-    - /^(master.*)$/
+    refs:
+      - /^(master.*)$/
+    changes:
+      - .gitlab-ci.yml
+      - shmwrapper.c
+      - utils.c
+      - utils.h
+      - Makefile
+      - docker-compose-build.yml
+      - ci/docker-deliver.sh
+      - docker/build/Dockerfile
   tags:
     - buildarm
 
@@ -35,6 +54,16 @@ x86:
   script:
     - setsid ./ci/docker-deliver.sh "x86" "shmwrapper" "1.0"
   only:
-    - /^(master.*)$/
+    refs:
+      - /^(master.*)$/
+    changes:
+      - .gitlab-ci.yml
+      - shmwrapper.c
+      - utils.c
+      - utils.h
+      - Makefile
+      - docker-compose-build.yml
+      - ci/docker-deliver.sh
+      - docker/build/Dockerfile.arm
   tags:
     - shmwrapper
