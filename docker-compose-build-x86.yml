@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+  shmwrapper:
+    image: comworkio/shmwrapper
+    container_name: shmwrapper
+    build:
+      context: .
+      dockerfile: docker/build/Dockerfile
+      target: shmwrapper

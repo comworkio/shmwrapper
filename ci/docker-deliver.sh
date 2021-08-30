@@ -16,12 +16,12 @@ tag_and_push() {
 
 cd "${REPO_PATH}" && git pull origin master || : 
 
-COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f docker-compose-build.yml build "${IMAGE}"
+COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f docker-compose-build-${ARCH}.yml build "${IMAGE}"
 
 echo "${DOCKER_ACCESS_TOKEN}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
 
 if [[ $ARCH == "x86" ]]; then
-  docker-compose push "rollup_${ARCH}"
+  docker-compose -f docker-compose-build-${ARCH}.yml push "rollup_${ARCH}"
   tag_and_push "${VERSION}" "${IMAGE}"
   [[ $INTERNAL_VERSION ]] && tag_and_push "${VERSION}-${INTERNAL_VERSION}" "${IMAGE}"
   tag_and_push "${VERSION}-${CI_COMMIT_SHORT_SHA}" "${IMAGE}"

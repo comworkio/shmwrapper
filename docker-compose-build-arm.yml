@@ -1,14 +1,7 @@
 version: "3.3"
 
 services:
-  x86:
-    image: comworkio/shmwrapper
-    container_name: shmwrapper
-    build:
-      context: .
-      dockerfile: docker/build/Dockerfile
-      target: shmwrapper
-  arm32:
+  shmwrapper:
     image: comworkio/shmwrapper
     container_name: shmwrapper
     build:

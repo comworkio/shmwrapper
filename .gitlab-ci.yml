@@ -43,7 +43,7 @@ arm32:
       - utils.c
       - utils.h
       - Makefile
-      - docker-compose-build.yml
+      - docker-compose-build-arm.yml
       - ci/docker-deliver.sh
       - docker/build/Dockerfile
   tags:
@@ -62,7 +62,7 @@ x86:
       - utils.c
       - utils.h
       - Makefile
-      - docker-compose-build.yml
+      - docker-compose-build-x86.yml
       - ci/docker-deliver.sh
       - docker/build/Dockerfile.arm
   tags:
