@@ -69,10 +69,16 @@ See this [image on docker hub](https://hub.docker.com/repository/docker/comworki
 
 The image is providing tags for x86 and arm architecture.
 
-You can also test that both architecture are working on a Mac M1 Silicon!
+You can also test that both architecture are working on a MacOS Docker desktop:
 
 ```shell
 $ docker-compose -f docker-compose-test-m1.yml up
 ```
 
+This will work both on a Mac M1 or intel ship:
+
 ![m1-test](./images/m1-test.png)
+
+But not on a CentOS x86 (you can see that the arm version is not working):
+
+![x86-centos-test](./images/x86-centos-test.png)
