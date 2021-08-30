@@ -1,0 +1,20 @@
+FROM balenalib/raspberrypi3-debian:latest AS shmwrapper_builder
+
+RUN mkdir -p /src
+
+WORKDIR /src
+
+COPY utils.c utils.h shmwrapper.c Makefile /src/
+
+RUN apt-get update && \
+  apt-get -qy install build-essential && \
+  make shmwrapper
+
+FROM balenalib/raspberrypi3-debian:latest AS shmwrapper
+
+ENV PATH="/shmwrapper:${PATH}"
+
+WORKDIR /
+
+COPY --from=shmwrapper_builder /src/shmwrapper /
+

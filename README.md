@@ -52,7 +52,7 @@ $ ./shmwrapper -c foo
 ### Testing with docker-compose
 
 ```shell
-$ docker-compose up
+$ docker-compose -f docker-compose-test.yml up
 ```
 
 ### Testing with kubernetes

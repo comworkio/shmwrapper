@@ -6,9 +6,9 @@ services:
     container_name: write
     ipc: host
     build:
-      context: docker/build
-      dockerfile: Dockerfile
-      target: default_test
+      context: .
+      dockerfile: docker/build/Dockerfile
+      target: base
     volumes:
       - ./:/shmwrapper:z
     command: /bin/sh -c "cd shmwrapper && make all_without_test && make test_write"
@@ -17,9 +17,9 @@ services:
     container_name: read
     ipc: host
     build:
-      context: docker/build
-      dockerfile: Dockerfile
-      target: default_test
+      context: .
+      dockerfile: docker/build/Dockerfile
+      target: base
     volumes:
       - ./:/shmwrapper:z
     command: /bin/sh -c "sleep 2 && cd /shmwrapper && make all_without_test && make test_read && make test_clear"
