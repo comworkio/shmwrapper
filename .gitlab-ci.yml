@@ -1,6 +1,7 @@
 stages:
   - publish
   - build_and_test
+  - deliver
 
 mirror:
   stage: publish
@@ -15,6 +16,24 @@ build-and-test:
   stage: build_and_test
   script:
     - make all
+  only:
+    - /^(master.*)$/
+  tags:
+    - shmwrapper
+
+arm32:
+  stage: deliver
+  script:
+    - setsid ./ci/docker-deliver.sh "arm" "shmwrapper" "1.0"
+  only:
+    - /^(master.*)$/
+  tags:
+    - buildarm
+
+x86:
+  stage: deliver
+  script:
+    - setsid ./ci/docker-deliver.sh "x86" "shmwrapper" "1.0"
   only:
     - /^(master.*)$/
   tags:
