@@ -82,3 +82,8 @@ This will work both on a Mac M1 or intel ship:
 But not on a CentOS x86 (you can see that the arm version is not working):
 
 ![x86-centos-test](./images/x86-centos-test.png)
+
+Nor on a raspberrypi:
+
+![raspberrypi-test](./images/raspberrypi-test.png)
+
