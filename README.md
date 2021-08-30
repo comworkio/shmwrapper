@@ -68,3 +68,8 @@ See [this md file](./kubernetes/README.md)
 See this [image on docker hub](https://hub.docker.com/repository/docker/comworkio/shmwrapper)
 
 The image is providing tags for x86 and arm architecture.
+
+You can also test that both architecture are working on a Mac M1 Silicon!
+
+```shell
+$ docker-compose -f docker-compose-test-m1.yml up

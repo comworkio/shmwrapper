@@ -15,7 +15,7 @@ RUN make shmwrapper
 
 FROM alpine:3.12.0 AS shmwrapper
 
-ENV PATH="/shmwrapper:${PATH}"
+ENV PATH "/shmwrapper:${PATH}"
 
 WORKDIR /
 

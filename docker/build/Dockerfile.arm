@@ -12,9 +12,8 @@ RUN apt-get update && \
 
 FROM balenalib/raspberrypi3-debian:latest AS shmwrapper
 
-ENV PATH="/shmwrapper:${PATH}"
+ENV PATH "/shmwrapper:${PATH}"
 
 WORKDIR /
 
 COPY --from=shmwrapper_builder /src/shmwrapper /
-
