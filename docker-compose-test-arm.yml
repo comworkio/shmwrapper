@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  write_arm:
+    image: comworkio/shmwrapper:latest-arm
+    container_name: shmwrapper_write_arm
+    ipc: host
+    command: ["/shmwrapper", "-w", "foo", "bar"]
+  read_arm:
+    image: comworkio/shmwrapper:latest-arm
+    container_name: shmwrapper_read_arm
+    ipc: host
+    command: ["/shmwrapper", "-r", "foo"]
+    depends_on:
+      - write_arm
