@@ -12,6 +12,8 @@ This project aims to check if containers can be able to share IPC's host and if 
 
 Spoiler: yes !
 
+For the french speakers, here's the demo on Youtube: https://youtu.be/2fBSRLDvP-U
+
 ## Git repositories
 
 * main repo: https://gitlab.comwork.io/oss/shmwrapper
