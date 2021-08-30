@@ -15,12 +15,12 @@ tag_and_push() {
 
   export DOCKER_CLI_EXPERIMENTAL=enabled
   if [[ $ARCH = "arm" ]]; then
-    docker manifest create comworkio/${2}:${1}:manifest-latest --amend comworkio/${2}:${1}:manifest-arm32v7 --amend comworkio/${2}:${1}:manifest-arm64v8
+    docker manifest create comworkio/${2}:manifest-latest --amend comworkio/${2}:manifest-arm32v7 --amend comworkio/${2}:manifest-arm64v8
   else
-    docker manifest create comworkio/${2}:${1}:manifest-latest --amend comworkio/${2}:${1}:manifest-amd64
+    docker manifest create comworkio/${2}:manifest-latest --amend comworkio/${2}:manifest-amd64
   fi
 
-  docker manifest push comworkio/${2}:${1}:manifest-latest
+  docker manifest push comworkio/${2}:manifest-latest
   unset DOCKER_CLI_EXPERIMENTAL
 }
 
