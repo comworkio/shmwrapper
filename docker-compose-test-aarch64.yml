@@ -1,0 +1,23 @@
+version: "3.3"
+
+services:
+  write_aarch64:
+    image: comworkio/shmwrapper:latest-aarch64
+    container_name: shmwrapper_write_aarch64
+    ipc: host
+    build:
+      context: .
+      dockerfile: docker/build/Dockerfile.aarch64
+      target: shmwrapper_aarch64
+    command: ["/shmwrapper", "-w", "foo", "bar"]
+  read_aarch64:
+    image: comworkio/shmwrapper:latest-aarch64
+    container_name: shmwrapper_read_aarch64
+    ipc: host
+    build:
+      context: .
+      dockerfile: docker/build/Dockerfile.aarch64
+      target: shmwrapper_aarch64
+    command: ["/shmwrapper", "-r", "foo"]
+    depends_on:
+      - write_aarch64

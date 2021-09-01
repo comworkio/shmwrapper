@@ -1,0 +1,19 @@
+FROM aarch64/alpine:latest AS shmwrapper_builder_aarch64
+
+RUN mkdir -p /src
+
+WORKDIR /src
+
+COPY utils.c utils.h shmwrapper.c Makefile /src/
+
+RUN set -ex && \
+    apk add --no-cache gcc musl-dev make && \
+    make shmwrapper
+
+FROM aarch64/alpine:latest AS shmwrapper_aarch64
+
+ENV PATH "/shmwrapper:${PATH}"
+
+WORKDIR /
+
+COPY --from=shmwrapper_builder_aarch64 /src/shmwrapper /
