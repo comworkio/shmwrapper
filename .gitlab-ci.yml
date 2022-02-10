@@ -10,7 +10,7 @@ mirror:
   only:
     - /^(master.*)$/
   tags:
-    - shmwrapper
+    - mirror
 
 build-and-test:
   stage: build_and_test
