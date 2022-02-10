@@ -19,6 +19,7 @@ For the french speakers, here's the demo on Youtube: https://youtu.be/2fBSRLDvP-
 * main repo: https://gitlab.comwork.io/oss/shmwrapper
 * github mirror backup: https://github.com/idrissneumann/shmwrapper
 * gitlab mirror backup: https://gitlab.com/ineumann/shmwrapper
+* bitbucket mirror backup: https://bitbucket.org/idrissneumann/shmwrapper
 
 ## Getting started
 
