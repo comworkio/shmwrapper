@@ -17,9 +17,8 @@ For the french speakers, here's the demo on Youtube: https://youtu.be/2fBSRLDvP-
 ## Git repositories
 
 * main repo: https://gitlab.comwork.io/oss/shmwrapper
-* github mirror backup: https://github.com/idrissneumann/shmwrapper
+* github mirror backup: https://github.com/comworkio/shmwrapper
 * gitlab mirror backup: https://gitlab.com/ineumann/shmwrapper
-* bitbucket mirror backup: https://bitbucket.org/idrissneumann/shmwrapper
 
 ## Getting started
 
@@ -89,4 +88,3 @@ But not on a CentOS x86 (you can see that the arm version is not working):
 Nor on a raspberrypi:
 
 ![raspberrypi-test](./images/raspberrypi-test.png)
-
